@@ -5,6 +5,8 @@ function initG6Graph(container) {
         {
             container: container,
             fitView: true,
+            // // 上，右，下，左
+            // fitViewPadding: [10,10,-1,10],
             groupByTypes: false,
             defaultEdge: {
                 style: {
@@ -33,7 +35,7 @@ function initG6Graph(container) {
                 type: 'dagreCompound',
                 rankdir: 'TD',
                 ranksep: 20,
-                begin: [100, 50],
+                // begin: [100, 50],
             },
             modes: {
                 default: [

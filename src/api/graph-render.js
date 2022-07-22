@@ -18,7 +18,6 @@ function graphRender(graph, graphData) {
         graph.findById(graphData.edgesToHide[i]).hide();
     }
 
-    graph.moveTo(0,0);
 
 }
 
