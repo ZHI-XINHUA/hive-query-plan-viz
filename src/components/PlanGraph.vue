@@ -1,10 +1,11 @@
 <template>
   <div ref="parent">
     <div class="block">
-      <span class="demonstration">高度</span>
+      <span class="demonstration">画布高度</span>
       <el-slider v-model="containerSize.height" :max="4096" :min="0"></el-slider>
-      <span class="demonstration">宽度</span>
+      <span class="demonstration">画布宽度</span>
       <el-slider v-model="containerSize.width" :max="2048" :min="0"></el-slider>
+      <el-button @click="exportGraph">导出图片</el-button>
     </div>
     <div id="graphContainer" ref="con"
          v-bind:style="containerStyle"></div>
@@ -39,20 +40,25 @@ export default {
     this.graph = initG6Graph(this.$refs.con);
     this.containerSize.width = this.$refs.parent.offsetWidth;
     this.containerSize.height = this.$refs.parent.offsetHeight;
-    console.log(this.$refs.parent)
+    console.log(this.containerSize)
   },
   methods: {
-    add: function () {
-      this.containerSize.height += 100;
-      this.graph.changeSize(this.containerSize, this.containerSize.height);
+    resize: function () {
+      this.graph.changeSize(this.containerSize.width, this.containerSize.height);
       this.graph.fitView();
+    },
+    exportGraph: function () {
+      this.graph.downloadFullImage();
     }
   },
   computed: {
     containerStyle: function () {
-      this.graph.changeSize(this.containerSize, this.containerSize.height);
-      this.graph.fitView();
       return {height: `${this.containerSize.height}px`, width: `${this.containerSize.width}px`};
+    }
+  },
+  watch: {
+    containerStyle: function () {
+      this.resize();
     }
   }
 }
@@ -60,7 +66,7 @@ export default {
 
 <style scoped>
 #graphContainer {
-  border: solid black 1px;
+  /*border: solid black 1px;*/
   /*height: 100%;*/
   position: relative;
 }
