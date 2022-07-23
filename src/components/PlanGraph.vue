@@ -55,14 +55,10 @@ export default {
   mounted() {
     this.graph = initG6Graph(this.$refs.con);
     this.containerSize.width = this.$refs.parent.offsetWidth;
-    this.containerSize.height = this.$refs.parent.offsetHeight;
+    this.containerSize.height = 1000;
     console.log(this.containerSize)
   },
   methods: {
-    resize: function () {
-      this.graph.changeSize(this.containerSize.width, this.containerSize.height);
-      this.graph.fitView();
-    },
     exportGraph: function () {
       this.graph.downloadFullImage();
     }
@@ -74,7 +70,8 @@ export default {
   },
   watch: {
     containerStyle: function () {
-      this.resize();
+      this.graph.changeSize(this.containerSize.width, this.containerSize.height);
+      this.graph.fitView();
     }
   }
 }
