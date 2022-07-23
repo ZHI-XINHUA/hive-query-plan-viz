@@ -1,5 +1,5 @@
 <template>
-  <div ref="parent">
+  <div ref="parent" id="plan-graph">
 
     <el-row :gutter="20">
       <el-col :span="12">
@@ -18,11 +18,9 @@
     </el-row>
 
     <el-row :gutter="20">
-
       <el-button @click="exportGraph">导出图片</el-button>
     </el-row>
-<!--    <div class="block">-->
-<!--    </div>-->
+    <hr>
     <div id="graphContainer" ref="con"
          v-bind:style="containerStyle"></div>
   </div>
@@ -79,9 +77,11 @@ export default {
 
 <style scoped>
 #graphContainer {
-  /*border: solid black 1px;*/
-  /*height: 100%;*/
   position: relative;
+}
+
+#plan-graph {
+  border-left: black solid 1px;
 }
 
 /deep/ .g6-tooltip {

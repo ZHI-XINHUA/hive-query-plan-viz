@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-header>
-        Hive执行计划可视化
+        <h3>Hive执行计划可视化</h3>
       </el-header>
       <el-main>
         <el-row>
@@ -47,9 +47,7 @@ export default {
 
 <style scoped>
 .el-header {
-  background-color: #B3C0D1;
+  background-color: #b9c4ce;
   color: #333;
-  text-align: center;
-  line-height: 60px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="test">
+  <div>
     <vue-json-pretty :data="jsonObj" :deep="2"></vue-json-pretty>
   </div>
 </template>
@@ -26,6 +26,5 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 </style>
