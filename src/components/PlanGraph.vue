@@ -1,12 +1,28 @@
 <template>
   <div ref="parent">
-    <div class="block">
-      <span class="demonstration">画布高度</span>
-      <el-slider v-model="containerSize.height" :max="4096" :min="0"></el-slider>
-      <span class="demonstration">画布宽度</span>
-      <el-slider v-model="containerSize.width" :max="2048" :min="0"></el-slider>
+
+    <el-row :gutter="20">
+      <el-col :span="12">
+        <div class="grid-content">
+
+          <span class="demonstration">画布高度</span>
+          <el-slider v-model="containerSize.height" :max="4096" :min="0"></el-slider>
+        </div>
+      </el-col>
+      <el-col :span="12">
+        <div class="grid-content">
+          <span class="demonstration">画布宽度</span>
+          <el-slider v-model="containerSize.width" :max="2048" :min="0"></el-slider>
+        </div>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="20">
+
       <el-button @click="exportGraph">导出图片</el-button>
-    </div>
+    </el-row>
+<!--    <div class="block">-->
+<!--    </div>-->
     <div id="graphContainer" ref="con"
          v-bind:style="containerStyle"></div>
   </div>

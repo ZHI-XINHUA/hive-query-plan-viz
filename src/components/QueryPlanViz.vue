@@ -13,12 +13,12 @@
           </el-col>
         </el-row>
         <el-row>
-          <el-col :span="12">
+          <el-col :span="8">
             <div class="grid-content">
               <JsonViewer></JsonViewer>
             </div>
           </el-col>
-          <el-col :span="12">
+          <el-col :span="16">
             <div class="grid-content">
               <PlanGraph></PlanGraph>
             </div>
