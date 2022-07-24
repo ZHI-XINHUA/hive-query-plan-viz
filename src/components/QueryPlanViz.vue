@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .el-header {
-  background-color: #b9c4ce;
+  background-color: #aeaeb9;
   color: #333;
 }
 </style>
