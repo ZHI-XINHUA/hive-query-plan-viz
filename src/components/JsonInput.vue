@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div class="my-container" style="padding: 0">
     <el-input type="textarea" :rows="2" placeholder="请输入hive query explain" v-model="textarea" @input="sendJsonStr">
     </el-input>
-    <hr>
   </div>
 
 </template>

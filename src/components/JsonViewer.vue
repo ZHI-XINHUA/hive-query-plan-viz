@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="my-container">
+    <span class="demonstration">JSON格式化</span>
     <vue-json-pretty :data="jsonObj" :deep="2"></vue-json-pretty>
   </div>
 </template>
@@ -27,4 +28,5 @@ export default {
 }
 </script>
 <style scoped>
+
 </style>
