@@ -6,6 +6,8 @@ const StageType = {
     MOVE: "Move Operator",
     STATS: "Stats Work",
     FETCH: "Fetch Operator",
+    TEZ: "Tez",
+    DEPCOL: "Dependency Collection",
 }
 
 const TaskType = {
@@ -19,6 +21,8 @@ const TaskType = {
     MOVE: "Move Operator",
     STATS: "Stats Work",
     FETCH: "Fetch Operator",
+    DEPCOL: "Dependency Collection",
+    FILEMERGE: "File Merge",
 }
 
 const OperatorType = {
@@ -121,7 +125,7 @@ function getTipText(tip) {
  */
 function handleTaskDependencies(stage, tasks, taskDependencies) {
 
-    if (stage.type === StageType.SPARK && typeof (taskDependencies) != 'undefined') {
+    if ((stage.type === StageType.SPARK || stage.type === StageType.TEZ) && typeof (taskDependencies) != 'undefined') {
         let deps = [];
         for (let dependency in taskDependencies) {
             if (taskDependencies[dependency] instanceof Array) {
@@ -243,7 +247,7 @@ function getOperatorTip(operator) {
             tip['expressions'] = operator[type]['expressions:'];
             break;
         default:
-            console.log("不支持");
+            console.log("不支持" + type);
     }
     return getTipText(tip);
 }
@@ -351,8 +355,12 @@ function getStageTasks(stagePlan) {
             return stagePlan;
         case StageType.STATS:
             return stagePlan;
+        case StageType.DEPCOL:
+            return stagePlan;
+        case StageType.TEZ:
+            return stagePlan[type]['Vertices:'];
         default:
-            console.log('不支持');
+            console.log('不支持stageType' + type);
             return null;
     }
 }
@@ -377,6 +385,8 @@ function getOperatorTree(task) {
             return task[taskLabel]['Reduce Operator Tree:'];
         case TaskType.MERGE:
             return task[taskLabel]['Map Operator Tree:'];
+        case TaskType.FILEMERGE:
+            return task[taskLabel]['Map Operator Tree:'];
         case TaskType.FETCH:
             return task;
         case TaskType.MOVE:
@@ -385,8 +395,10 @@ function getOperatorTree(task) {
             return task;
         case TaskType.CONDITIONAL:
             return task;
+        case TaskType.DEPCOL:
+            return task;
         default:
-            console.log('不支持');
+            console.log('不支持' + taskType);
             return null;
     }
 }

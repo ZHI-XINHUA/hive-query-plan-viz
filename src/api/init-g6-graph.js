@@ -35,7 +35,6 @@ function initG6Graph(container) {
                 type: 'dagreCompound',
                 rankdir: 'TD',
                 ranksep: 20,
-                // begin: [100, 50],
             },
             modes: {
                 default: [
