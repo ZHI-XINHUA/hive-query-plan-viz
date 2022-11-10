@@ -229,8 +229,15 @@ function handleStageDependency(sourceStage, targetStage) {
 }
 
 function getOperatorTip(operator) {
+    console.log(operator);
     let type = Object.keys(operator)[0];
     let tip = {};
+
+    // eslint-disable-next-line no-prototype-builtins
+    if (operator[type].hasOwnProperty('Statistics:')) {
+        tip['Statistics'] = operator[type]['Statistics:'];
+    }
+
     switch (type) {
         case OperatorType.TABLESCAN:
             tip['alias'] = operator[type]['alias:'];
