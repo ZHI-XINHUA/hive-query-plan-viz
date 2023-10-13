@@ -1,7 +1,7 @@
 # hive-query-plan-viz
 
 ## 使用说明
-使用一下命令获取格式化后的执行计划（json格式），放入输入框，即可得到执行计划图
+使用如下命令获取格式化后的执行计划（json格式），放入输入框，即可得到执行计划图
 ```sql
 explain formatted <sql>
 ```
