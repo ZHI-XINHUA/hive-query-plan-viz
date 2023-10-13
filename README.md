@@ -6,7 +6,7 @@
 explain formatted <sql>
 ```
 ## 效果图
-![img.png](img.png)![]()
+![img.png](img.png)
 
 ## Project setup
 > 我有一点小小的要求：node版本<=14
