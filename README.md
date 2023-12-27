@@ -31,3 +31,15 @@ npm run build
 npm run lint
 ```
 
+
+## 安装步骤
+### (1) cnpm i安装依赖
+```
+cnpm i
+```
+
+### (2) npm run serve启动
+```
+sudo npm run serve
+```
+
